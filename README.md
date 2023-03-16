@@ -114,7 +114,8 @@ Now is time for you and your team to implement what we have done into your proje
 
 # 8. References
 
-- [Split Screen Wikipedia](https://www.slideshare.net/kshiraj/game-art-bible-secret-sauce-to-making-great-game-art)
+- [Split Screen Wikipedia](https://en.wikipedia.org/wiki/Split_screen_(computing))
+- [Fandom: Split Screen](https://ultimatepopculture.fandom.com/wiki/Split_screen_(video_games))
 
 
 <p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
