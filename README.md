@@ -87,6 +87,10 @@ A split screen is a technique where the screen is separated in two or more piece
 
 # 6. Let's do it!
 
+![](https://github.com/Historn/Split-Screen/blob/main/docs/gifs/quijote.gif?raw=true)
+
+[Image source](https://giphy.com)
+
 - TODO 1:
 
 
