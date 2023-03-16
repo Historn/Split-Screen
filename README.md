@@ -106,51 +106,9 @@ Now is time for you and your team to implement what we have done into your proje
 
 <p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
 
-# 8. References
-
-- **Music**
-
-  - How do we want to make our players feel when playing?
-  - Which is the situation of each scene?
-  - Which instrumentation do we want to be performed?
-
-- **Effects**
-
-  - How are going to be our main character action effects like jumping, running, ...?
-  - How do we want our entities to sound like?
-  - Which type of ambiance do we want our world to sound like? 
-  - How will our UI elements sound like? 
-  
-- **Voice Over**
-
-  - Which style of voice over do we want so it fits our game? Which age type, gender type, ...?
-  - How will be our main character's voice? And the other entities?
- 
-- **Conventions**
-
-  - Which audio formats, libraries and audio management will our game have?
-  
-## Example of an audio bible
-
-Click [here](https://ashleemccarthy.wordpress.com/2013/06/06/sound-design-document/) to see an example of audio bible.
-
-<p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
-
-# 9. Application to our projects
-
-Arrived to this point, now it is your turn. You and your team members must meet all together and decide which art and audio style fits best your game idea and what you want to do. Next, you have to start thinking about what elements define the style you have chosen and try to see if they have a good coherence between all of them. 
-
-Knowing what you want you and your team want to do is crucial, it will help you to take an specific way of proceeding in both art and audio parts of your project. But before starting anything, you have to keep one thing in mind. As they say, *"Less is more. Keep it simple, st＊pid!"*. 
-
-![](https://github.com/Historn/Split-Screen/blob/main/docs/gifs/K.I.S.S..gif?raw=true)
-
-[Image source](https://getyarn.io/yarn-clip/2e107c54-c65a-43b2-8125-eaf087e6a305/gif)
-
-<p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
-
 ***
 
-# 10. References
+# 8. References
 
 - [Split Screen Wikipedia](https://www.slideshare.net/kshiraj/game-art-bible-secret-sauce-to-making-great-game-art)
 
