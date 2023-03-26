@@ -44,7 +44,7 @@ This website is built for information regarding my Personal Research lecture I d
 <p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
 
 # 2. What is a split screen?
-A split screen is a technique where the screen is separated in two or more pieces to display and control different media at the same time. 
+A split screen is a software program technique where the screen is separated into two or more pieces to display and control different media at the same time. In videogames the objective is to allow the players play in the same game, move around the world without depending on the others or do other things such as resource management.
 
 ![](https://github.com/Historn/Split-Screen/blob/main/docs/images/types_splitscreen.png?raw=true)
 
@@ -52,22 +52,8 @@ A split screen is a technique where the screen is separated in two or more piece
 
 <p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
 
-# 3. What is a split screen for in video games?
-
-- To show different things at he same time.
-
-- To allow more than one player to play in the same game.
-
-- To allow players to move around without depending on the other players.
-
-![](https://github.com/Historn/Split-Screen/blob/main/docs/images/spsc_example.png?raw=true)
-
-[Image Source](https://en.wikipedia.org/wiki/Split_screen_(computing)#:~:text=In%20its%20most%20easily%20understood,simultaneously%20without%20being%20close%20to)
-
-<p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
-
-# 4. When should a split screen appear?
-The split screen should be created for a local multiplayer game or for a game where we need to display things in different windows such as resource management games. This way we can play with more players without Internet connection in the same screen or manage resources and other stuff in our game without moving on from the gameplay screen.
+# 3. When should a split screen appear?
+The split screen should be created for a local multiplayer game or for a game where we need to display things in different windows such as resource management games. This way we can play with multiple players without Internet connection in the same screen or manage resources and other stuff in our game without moving on from the gameplay screen.
 
 ![](https://github.com/Historn/Split-Screen/blob/main/docs/images/types_splitscreen.png?raw=true)
 
@@ -75,14 +61,16 @@ The split screen should be created for a local multiplayer game or for a game wh
 
 <p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
 
-# 5. Things to take into consideration when making a split screen
-The more number of cameras that are used during the gameplay, the higher the performance impact is. This is because for each camera we are redrawing the whole scene displayed multiplying the performance impact by the number of cameras that are.
+# 4. Things to take into consideration when making a split screen
+The more number of cameras that are used during the gameplay, the higher the performance impact is. This is because each camera is redrawing the whole scene displayed multiplying the performance impact by the number of cameras that have been created. 
+
+Also taking into acount that we are splitting n times our screen, each player looses a percentage of the screen then the visibility will be lesser.
 
 <p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
 
 ***
 
-# 6. Implementing a Split Screen
+# 5. Implementing a Split Screen
 
 ## Let's do it!
 
@@ -94,9 +82,6 @@ First we need to know what does a split screen needs to work correctly. The main
 - Create and render the number of cameras that we want to use for the program.
 - Create the number of players that are going to play.
 - Draw the players on each camera where they appear.
-- Make the quest manager instantiate and run all the active quests updates.
-- Generate some kind of event on each quest update that if it happens makes the update return false, indicating that the quest has been completed.
-- Make the quest manager do the arrangements for the change of the active quest to the next quest in the questline.
 
 ![](https://github.com/Historn/Split-Screen/blob/main/docs/gifs/quijote.gif?raw=true)
 
@@ -104,7 +89,7 @@ First we need to know what does a split screen needs to work correctly. The main
 
 ### TODOS
 
-Now, you will go through five TODOS in which you will have to solve certain code exercises in order for the split screen to work completly. The main foundations are allready implemented so if you solve the issues the program will run correctly. You can find the answeres here and a solved program in this [branch](https://github.com/kikofp02/QuestManager/tree/Solved_Handout).
+Now, you will go through five TODOS in which you will have to solve certain code exercises in order for the split screen to work completly. The main foundations are allready implemented so if you solve the issues the program will run correctly. You can find the answers here and a solved program in my [github repository](https://github.com/Historn/Split-Screen).
 
 #### TODO 0
 
@@ -211,13 +196,34 @@ if (n_cameras_max - i > n_cameras_rows_aux)		//if the camera is not in the last 
 			}
 ```
 
+#### TODO 5
+
+Assign one camera that is not assigned yet to the current player.
+
+```c++
+// Player.cpp file changes:
+
+	//TODO 3: Assign one camera that is not assigned yet to the current player.
+	ListItem<Camera*>* cameraItem = app->render->cameras.start;
+	while (cameraItem != NULL)
+	{
+		if (cameraItem->data->assigned == false)
+		{
+			cameraItem->data->assigned = true;
+			cameraPlayer = cameraItem->data;
+			break;
+		}
+		cameraItem = cameraItem->next;
+	}
+```
+
 ![](https://github.com/Historn/Split-Screen/blob/main/docs/images/handout_todo1.jpg?raw=true)
 
 [Image source]()
 
 <p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
 
-# 7. Application to our projects
+# 6. Application to our projects
 
 Now is time for you and your team to implement what we have done into your projects, then you will have an easy and totally functional split screen mode for your games!
 
@@ -241,7 +247,7 @@ In this way when the players are together, a single camera doesn't use as many r
 
 ***
 
-# 8. References
+# 7. References
 
 - [Split Screen Wikipedia](https://en.wikipedia.org/wiki/Split_screen_(computing))
 - [Fandom: Split Screen](https://ultimatepopculture.fandom.com/wiki/Split_screen_(video_games))
