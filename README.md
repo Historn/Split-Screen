@@ -150,80 +150,65 @@ if (n_cameras_max - i > n_cameras_columns_aux)	//if the camera is not in the las
 
 #### TODO 2
 
-Make the creation of the quests in the quest manager's awake depending on the quest type marked in the config file.
+Calculate the new position of rect in screen.
 
 ```c++
-// QuestManager.cpp file changes:
+// Render.cpp file changes:
 
-		Quest* quest;
-		// TODO 3 - Create the quests depending on the type attribute
-		switch ((QuestType)node.attribute("type").as_int())
-		{
-		case QuestType::TALK:
-			quest = new TalkQuest(node);
-			break;
-		case QuestType::COLLECT:
-			quest = new CollectQuest(node);
-			break;
-		default:
-			break;
-		}
+	//TODO 2: Calculate the new position in rect_in_screen. Remember that you calculate the position on screen in camera_aux->screen_section.
+	//Transform the rect in the word to the rect in screen =======================
+	rect.x = -camera->rect.x + x * scale;
+	rect.y = -camera->rect.y + y * scale;
 
-		quests.Add(quest);
+	//Move the rect_in_screen to their correct screen =========================== 	
+	rect.x += camera->screen_section.x;
+	rect.y += camera->screen_section.y;
 ```
 
 #### TODO 3
 
-Nest in the config file the quests that will start enabled and then, on the quest manager, add them to the list of active quests.
+Assign one camera that is not assigned yet to the current player.
 
 ```c++
-// config.xml file changes:
-    
-		<activequests>
-			<!-- TODO 4 - Add the list of quests active on the begining of the program -->
-			<quest id="1"></quest>
-		</activequests>
-    
-    
-// QuestManager.cpp file changes:
+// Player.cpp file changes:
 
-		ListItem<Quest*>* qitem = quests.start;
-		while (qitem != nullptr)
+	//TODO 3: Assign one camera that is not assigned yet to the current player.
+	ListItem<Camera*>* cameraItem = app->render->cameras.start;
+	while (cameraItem != NULL)
+	{
+		if (cameraItem->data->assigned == false)
 		{
-			Quest* item = qitem->data;
-			//TODO 4 - If it's a quest that has to go in the actives list, add it to it
-			if (item->id == node.attribute("id").as_int()) {
-				activeQuests.Add(item);
-				break;
-			}
-
-			qitem = qitem->next;
+			cameraItem->data->assigned = true;
+			cameraPlayer = cameraItem->data;
+			break;
 		}
+		cameraItem = cameraItem->next;
+	}
 ```
 
 #### TODO 4
 
-Update the lists of quests when a quest is completed (output of the update of the quest is fasle).
+Calculate the position of every camera in the screen in camera_aux->screen_section.
 
 ```c++
-		if (pQuest->Update() == false) {
-			// TODO 5 - When the quest is completed, we have to deleted from actives list, add the next quest to actives list and then add the completed quest to the copleted quests list
-			activeQuests.Del(item);
-
-			ListItem<Quest*>* qitem = quests.start;
-			while (qitem != nullptr)
+if (n_cameras_max - i > n_cameras_rows_aux)		//if the camera is not in the last column.
 			{
-				Quest* item = qitem->data;
-				if (item->id == pQuest->nextQuestId) {
-					activeQuests.Add(item);
-					break;
-				}
+				final_height = height;																					//assign the normal height.
+				//TODO 4: Calculate the position of every camera in the screen in camera_aux->screen_section.
+				//now we do not count from left to right, now we count from top to bottom.
 
-				qitem = qitem->next;
+				camera_aux->screen_section.x = margin + (i / n_cameras * (final_width + margin));	//formulas to calculate the x and y of the screen section.
+				camera_aux->screen_section.y = margin + (i % n_cameras * (final_height + margin));	//the x have the / and the y the % to set the order from up to the down.
 			}
-
-			completedQuests.Add(pQuest);
-		}
+			else
+			{
+				final_height = height_aux;		//assign the height_aux in the last column becuase is different.
+				n_cameras_aux = n_cameras_rows_aux;
+				//TODO 4: Calculate the position of every camera in the screen in camera_aux->screen_section.
+				//In the last column it happens the same, we don’t have the same number of cameras.
+				camera_aux->screen_section.x = margin + (i / n_cameras * (final_width + margin));	//formulas to calculate the x and y of the screen section in the last column.	
+				camera_aux->screen_section.y = margin + (i % n_cameras_aux * (final_height + margin));		//the x have the / and the y the % to set the order from up to the down.
+			}
 ```
 
 ![](https://github.com/Historn/Split-Screen/blob/main/docs/images/handout_todo1.jpg?raw=true)
