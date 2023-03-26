@@ -216,10 +216,6 @@ Draw the players inside each camera.
 
 Now is time for you and your team to implement what we have done into your projects, then you will have an easy and totally functional split screen mode for your games!
 
-![](https://github.com/Historn/Split-Screen/blob/main/docs/gifs/Done.gif?raw=true)
-
-[Image source](https://giphy.com/)
-
 ## Improvements
 
 As we have seen, we can create squared cameras but... There's any way to improve it visually and its performance impact? Actually, yes.
