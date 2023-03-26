@@ -235,7 +235,7 @@ In this way when the players are together, a single camera doesn't use as many r
 
 ![](https://github.com/Historn/Split-Screen/blob/main/docs/gifs/voronoi_split_screen.gif?raw=true)
 
-[Image source]([https://giphy.com/](https://philarchive.org/archive/KARSV](https://mattwoelk.github.io/voronoi_split_screen_notes/))
+[Image source](https://philarchive.org/archive/KARSV](https://mattwoelk.github.io/voronoi_split_screen_notes/))
 
 <p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
 
