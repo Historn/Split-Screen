@@ -198,23 +198,20 @@ if (n_cameras_max - i > n_cameras_rows_aux)		//if the camera is not in the last 
 
 #### TODO 5
 
-Assign one camera that is not assigned yet to the current player.
+Draw the players inside each camera.
 
 ```c++
 // Player.cpp file changes:
 
-	//TODO 3: Assign one camera that is not assigned yet to the current player.
-	ListItem<Camera*>* cameraItem = app->render->cameras.start;
-	while (cameraItem != NULL)
+	//TODO 5: Draw the players inside each camera.
+	for (ListItem<Camera*>* cameraItem = app->render->cameras.start; cameraItem != NULL; cameraItem = cameraItem->next)
 	{
-		if (cameraItem->data->assigned == false)
-		{
-			cameraItem->data->assigned = true;
-			cameraPlayer = cameraItem->data;
-			break;
-		}
-		cameraItem = cameraItem->next;
+		SDL_RenderSetClipRect(app->render->renderer, &cameraItem->data->screen_section);
+		SDL_Rect rect = currentAnim->GetCurrentFrame();
+		app->render->DrawTexture(texture, tile.x * 32, tile.y * 32, cameraItem->data, &rect);
+		currentAnim->Update();
 	}
+	SDL_RenderSetClipRect(app->render->renderer, nullptr);
 ```
 
 ![](https://github.com/Historn/Split-Screen/blob/main/docs/images/handout_todo1.jpg?raw=true)
