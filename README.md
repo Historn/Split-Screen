@@ -106,7 +106,7 @@ First we need to know what does a split screen needs to work correctly. The main
 
 Now, you will go through five TODOS in which you will have to solve certain code exercises in order for the split screen to work completly. The main foundations are allready implemented so if you solve the issues the program will run correctly. You can find the answeres here and a solved program in this [branch](https://github.com/kikofp02/QuestManager/tree/Solved_Handout).
 
-#### TODO 
+#### TODO 0
 
 Edit the config.xml file to complete split screen and cameras parameters and calculate the max number of cameras in n_cameras_max with n_cameras_columns and n_cameras_rows.
 
@@ -227,9 +227,11 @@ Now is time for you and your team to implement what we have done into your proje
 
 ## Improvements
 
-As we have seen, we can create squared cameras but there's any way to improve it visually and its performance impact? Yes.
+As we have seen, we can create squared cameras but... There's any way to improve it visually and its performance impact? Actually, yes.
 
-Voronoid Split Screen is a dynamic type of split screen where the viewport splits itself into the cameras needed depending on the players positions. If the players are close to each other, then we jus have one camera rendering both players, but once they move around and they get farther then the screen is splited procedurally by calculating the perpendicular bisector of two points (Player1 and Player2 positions).
+Voronoid Split Screen is a dynamic type of split screen where the viewport splits itself into the cameras needed depending on the players positions. If the players are close to each other, then we jus have one camera rendering both players, but once they move around and they get farther then the screen is splited procedurally by calculating the perpendicular bisector of two points (Player1 and Player2 positions). 
+
+In this way when the players are together, a single camera doesn't use as many resources as a splitted screen.
 
 ![](https://github.com/Historn/Split-Screen/blob/main/docs/gifs/voronoi_split_screen.gif?raw=true)
 
