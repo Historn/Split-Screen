@@ -1,4 +1,4 @@
-![](https://github.com/Historn/Split-Screen/blob/main/docs/images/RepoTemplate.png?raw=true)
+![](https://github.com/Historn/Split-Screen/blob/main/docs/images/title.png?raw=true)
 
 # Useful Information
 - Made by: [Arnau Jiménez](https://github.com/Historn)
@@ -113,9 +113,16 @@ Edit the config.xml file to complete split screen and cameras parameters.
 ```c++
 // config.xml file changes:
 
-		<!-- Complete the quest structure -->
-		<quest type="0" id="1" name="TALK WITH GRANDPA KIKO" description="Search for your grandfather hwo needs your help." nextQuestId="2" npcId="2" reward="700"></quest>
-		<quest type="1" id="2" name="FIND GRANDPA S LOST CHESTS" description="Grandpa's chests disappeared long ago. They have to be somewhere!" nextQuestId="0" itemId="1" reward="0"></quest>
+	<renderer>
+		<vsync value="false"/>
+		<!--TODO 0: Set the values to have 3 cameras in horizontal position.-->
+		<margin value="10"/> <!--Changes margin size between cameras, default is 10-->
+		<n_cameras_columns value="2"/>
+		<n_cameras_rows value="2"/>
+		<n_cameras_aux value="1"/> <!--n_cameras_aux works for HORIZONTAL and VERTICAL orientations.-->
+		<orientation value="2"/>
+		<!--the orientation in int: 1: SQUARES, 2: HORIZONTAL, 3: VERTICAL-->
+	</renderer>
 ```
 
 #### TODO 2
