@@ -90,7 +90,7 @@ Now, you will go through six TODOS in which you will have to solve certain code 
 
 #### TODO 0
 
-Edit the config.xml file to complete split screen and cameras parameters and calculate the max number of cameras in n_cameras_max with n_cameras_columns and n_cameras_rows.
+Edit the config.xml file to complete split screen and cameras parameters and in Render.cpp calculate the max number of cameras in n_cameras_max with n_cameras_columns and n_cameras_rows.
 
 ```c++
 // config.xml file changes:
