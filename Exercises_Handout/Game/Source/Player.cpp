@@ -109,15 +109,13 @@ bool Player::Update()
 	//WINNING SEQUENCE
 	
 	//ANIMATION STATE MACHINE
-	for (ListItem<Camera*>* cameraItem = app->render->cameras.start; cameraItem != NULL; cameraItem = cameraItem->next)
-	{
-		SDL_RenderSetClipRect(app->render->renderer, &cameraItem->data->screen_section);
-		SDL_Rect rect = currentAnim->GetCurrentFrame();
-		app->render->DrawTexture(texture, tile.x * 32, tile.y * 32, cameraItem->data, &rect);
-		currentAnim->Update();
-	}
-	SDL_RenderSetClipRect(app->render->renderer, nullptr);
+	//TODO 5: Draw the players inside each camera.
 	
+	
+	SDL_Rect rect = currentAnim->GetCurrentFrame();
+	app->render->DrawTexture(texture, tile.x * 32, tile.y * 32, NULL, &rect);
+	currentAnim->Update();
+
 	CameraMovement();
 
 	return true;
