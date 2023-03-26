@@ -3,7 +3,7 @@
 # Useful Information
 - Made by: [Arnau Jiménez](https://github.com/Historn)
 - Click [here](https://github.com/Historn/Split-Screen) to visit project's Github repository.
-- Click [here]() to check slides presentation.
+- Click [here](https://docs.google.com/presentation/d/1z1sDcuq-cnlALRzvc3pt_n_3Wq_aYstBhH8iRBt2Ryk/edit?usp=sharing) to check slides presentation.
 
 ## Table of Contents
 <details>
@@ -51,10 +51,6 @@ A split screen is a software program technique where the screen is separated int
 
 # 3. When should a split screen appear?
 The split screen should be created for a local multiplayer game or for a game where we need to display things in different windows such as resource management games. This way we can play with multiple players without Internet connection in the same screen or manage resources and other stuff in our game without moving on from the gameplay screen.
-
-![](https://github.com/Historn/Split-Screen/blob/main/docs/images/types_splitscreen.png?raw=true)
-
-[Image Source](https://en.wikipedia.org/wiki/Split_screen_(computing)#:~:text=In%20its%20most%20easily%20understood,simultaneously%20without%20being%20close%20to)
 
 <p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
 
@@ -220,9 +216,9 @@ Now is time for you and your team to implement what we have done into your proje
 
 As we have seen, we can create squared cameras but... There's any way to improve it visually and its performance impact? Actually, yes.
 
-Voronoid Split Screen is a dynamic type of split screen where the viewport splits itself into the cameras needed depending on the players positions. If the players are close to each other, then we jus have one camera rendering both players, but once they move around and they get farther then the screen is splited procedurally by calculating the perpendicular bisector of two points (Player1 and Player2 positions). 
+Voronoid Split Screen is a dynamic type of split screen where the viewport splits itself into the cameras needed depending on the players positions. If the players are close to each other, then we jusT have one camera rendering both players, but once they move around and they get farther then the screen is spliTted procedurally by calculating the perpendicular bisector of two points (ex. Player1 and Player2 positions). 
 
-In this way when the players are together, a single camera doesn't use as many resources as a splitted screen.
+In this way, when the players are together, a single camera doesn't use as many resources as a splitted screen.
 
 ![](https://github.com/Historn/Split-Screen/blob/main/docs/gifs/voronoi_split_screen.gif?raw=true)
 
@@ -238,6 +234,7 @@ In this way when the players are together, a single camera doesn't use as many r
 - [Fandom: Split Screen](https://ultimatepopculture.fandom.com/wiki/Split_screen_(video_games))
 - [Split Screen: Videogame History through Local Multiplayer Design](https://philarchive.org/archive/KARSV)
 - [Voronoi split screen: A Quick Tour](https://mattwoelk.github.io/voronoi_split_screen_notes/)
+- [Math for Game Programmers: Juicing Your Cameras With Math](https://www.youtube.com/watch?v=tu-Qe66AvtY&t=1575s)
 
 <p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
 
