@@ -119,6 +119,7 @@ bool Player::Update()
 	//WINNING SEQUENCE
 	
 	//ANIMATION STATE MACHINE
+	//TODO 5: Draw the players inside each camera.
 	for (ListItem<Camera*>* cameraItem = app->render->cameras.start; cameraItem != NULL; cameraItem = cameraItem->next)
 	{
 		SDL_RenderSetClipRect(app->render->renderer, &cameraItem->data->screen_section);

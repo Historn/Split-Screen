@@ -133,9 +133,7 @@ void Render::CreateSplitScreen()
 			{
 				final_width = width_aux;																				//assign the width_aux in the last row becuase is different.
 				n_cameras_aux = n_cameras_columns_aux;
-				//TODO 4: Calculate the position of every camera in the screen in camera_aux->screen_section.
-				//remember that now the number of cameras is not the same.
-
+				//Now the number of cameras is not the same.
 				camera_aux->screen_section.x = margin + (i % n_cameras_aux * (final_width + margin));					//formulas to calculate the x and y of the screen section in the last row.				
 				camera_aux->screen_section.y = margin + (i / n_cameras * (final_height + margin));						//the x have the % and the y the / to set the order left left to the right.
 			}
@@ -148,7 +146,7 @@ void Render::CreateSplitScreen()
 			if (n_cameras_max - i > n_cameras_rows_aux)																	//if the camera is not in the last column.
 			{
 				final_height = height;																					//assign the normal height.
-				//TODO 5: Calculate the position of every camera in the screen in camera_aux->screen_section.
+				//TODO 4: Calculate the position of every camera in the screen in camera_aux->screen_section.
 				//now we do not count from left to right, now we count from top to bottom.
 
 				camera_aux->screen_section.x = margin + (i / n_cameras * (final_width + margin));						//formulas to calculate the x and y of the screen section.
@@ -158,7 +156,7 @@ void Render::CreateSplitScreen()
 			{
 				final_height = height_aux;																				//assign the height_aux in the last column becuase is different.
 				n_cameras_aux = n_cameras_rows_aux;
-				//TODO 5: Calculate the position of every camera in the screen in camera_aux->screen_section.
+				//TODO 4: Calculate the position of every camera in the screen in camera_aux->screen_section.
 				//In the last column it happens the same, we don’t have the same number of cameras.
 
 				camera_aux->screen_section.x = margin + (i / n_cameras * (final_width + margin));						//formulas to calculate the x and y of the screen section in the last column.	
@@ -169,7 +167,6 @@ void Render::CreateSplitScreen()
 		camera_aux->rect.w = camera_aux->screen_section.w = final_width;									//assign the final width in the rect and the screen_section defined above in each case.
 		camera_aux->rect.h = camera_aux->screen_section.h = final_height;									//assign the final height in the rect and the screen_section definded above in each case.
 
-		//cameras.push_back(camera_aux);
 		cameras.Add(camera_aux);
 	}
 }
