@@ -82,14 +82,138 @@ The more number of cameras that are used during the gameplay, the higher the per
 
 ***
 
-# 6. Let's do it!
+# 6. Implementing a Split Screen
 
-	![](https://github.com/Historn/Split-Screen/blob/main/docs/gifs/quijote.gif?raw=true)
+## Let's do it!
+
+We have a map, with a player that can move within the tiles. So we will try to create a multiplayer game by adding some more players and cameras for focusing on each one of them. The example goes through some exercices that are prepared to understand how a split screen creation works:
+
+First we need to know what does a split screen needs to work correctly. The main steps we need to follow are:
+- Have the proper parameters on the config file of the program.
+- Load the parameters from the config file.
+- Create and render the number of cameras that we want to use for the program.
+- Create the number of players that are going to play.
+- Draw the players on each camera where they appear.
+- Make the quest manager instantiate and run all the active quests updates.
+- Generate some kind of event on each quest update that if it happens makes the update return false, indicating that the quest has been completed.
+- Make the quest manager do the arrangements for the change of the active quest to the next quest in the questline.
+
+![](https://github.com/Historn/Split-Screen/blob/main/docs/gifs/quijote.gif?raw=true)
 
 [Image source](https://giphy.com)
 
-- TODO 1:
+### TODOS
 
+Now, you will go through five TODOS in which you will have to solve certain code exercises in order for the split screen to work completly. The main foundations are allready implemented so if you solve the issues the program will run correctly. You can find the answeres here and a solved program in this [branch](https://github.com/kikofp02/QuestManager/tree/Solved_Handout).
+
+#### TODO 1
+
+Edit the config.xml file to complete split screen and cameras parameters.
+
+```c++
+// config.xml file changes:
+
+		<!-- Complete the quest structure -->
+		<quest type="0" id="1" name="TALK WITH GRANDPA KIKO" description="Search for your grandfather hwo needs your help." nextQuestId="2" npcId="2" reward="700"></quest>
+		<quest type="1" id="2" name="FIND GRANDPA S LOST CHESTS" description="Grandpa's chests disappeared long ago. They have to be somewhere!" nextQuestId="0" itemId="1" reward="0"></quest>
+```
+
+#### TODO 2
+
+Load the parameters to the quest in his constructor.
+
+```c++
+// TextQuest.cpp file changes:
+
+TalkQuest::TalkQuest(pugi::xml_node node) {
+	// TODO 2 - Load all the parameters of the quest
+	this->id = node.attribute("id").as_int();
+	this->name = node.attribute("name").as_string();
+	this->description = node.attribute("description").as_string();
+	this->nextQuestId = node.attribute("nextQuestId").as_int();
+	this->npcId = node.attribute("npcId").as_int();
+	this->reward = node.attribute("reward").as_int();
+	this->type = QuestType::TALK;
+}
+```
+
+#### TODO 3
+
+Make the creation of the quests in the quest manager's awake depending on the quest type marked in the config file.
+
+```c++
+// QuestManager.cpp file changes:
+
+		Quest* quest;
+		// TODO 3 - Create the quests depending on the type attribute
+		switch ((QuestType)node.attribute("type").as_int())
+		{
+		case QuestType::TALK:
+			quest = new TalkQuest(node);
+			break;
+		case QuestType::COLLECT:
+			quest = new CollectQuest(node);
+			break;
+		default:
+			break;
+		}
+
+		quests.Add(quest);
+```
+
+#### TODO 4
+
+Nest in the config file the quests that will start enabled and then, on the quest manager, add them to the list of active quests.
+
+```c++
+// config.xml file changes:
+    
+		<activequests>
+			<!-- TODO 4 - Add the list of quests active on the begining of the program -->
+			<quest id="1"></quest>
+		</activequests>
+    
+    
+// QuestManager.cpp file changes:
+
+		ListItem<Quest*>* qitem = quests.start;
+		while (qitem != nullptr)
+		{
+			Quest* item = qitem->data;
+			//TODO 4 - If it's a quest that has to go in the actives list, add it to it
+			if (item->id == node.attribute("id").as_int()) {
+				activeQuests.Add(item);
+				break;
+			}
+
+			qitem = qitem->next;
+		}
+```
+
+#### TODO 5
+
+Update the lists of quests when a quest is completed (output of the update of the quest is fasle).
+
+```c++
+		if (pQuest->Update() == false) {
+			// TODO 5 - When the quest is completed, we have to deleted from actives list, add the next quest to actives list and then add the completed quest to the copleted quests list
+			activeQuests.Del(item);
+
+			ListItem<Quest*>* qitem = quests.start;
+			while (qitem != nullptr)
+			{
+				Quest* item = qitem->data;
+				if (item->id == pQuest->nextQuestId) {
+					activeQuests.Add(item);
+					break;
+				}
+
+				qitem = qitem->next;
+			}
+
+			completedQuests.Add(pQuest);
+		}
+```
 
 ![](https://github.com/Historn/Split-Screen/blob/main/docs/images/handout_todo1.jpg?raw=true)
 
@@ -105,6 +229,12 @@ Now is time for you and your team to implement what we have done into your proje
 
 [Image source](https://giphy.com/)
 
+## Improvements
+
+As we have seen, we can create squared cameras but there's any way to improve it visually and its performance impact? Yes.
+
+Voronoid Split Screen is a dynamic type of split screen where the viewport splits itself into the cameras needed depending on the players positions. If the players are close to each other, then we jus have one camera rendering both players, but once they move around and they get farther then the screen is splited procedurally by calculating the perpendicular bisector of two points (Player1 and Player2 positions).
+
 <p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
 
 ***
@@ -113,7 +243,7 @@ Now is time for you and your team to implement what we have done into your proje
 
 - [Split Screen Wikipedia](https://en.wikipedia.org/wiki/Split_screen_(computing))
 - [Fandom: Split Screen](https://ultimatepopculture.fandom.com/wiki/Split_screen_(video_games))
-
+- [Split Screen: Videogame History through Local Multiplayer Design](https://philarchive.org/archive/KARSV)
 
 <p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
 
