@@ -87,7 +87,7 @@ void Render::CreateSplitScreen()
 		break;
 	case Orientation::SQUARES:
 		//TODO 0: Calculate the max number of cameras in n_cameras_max with n_cameras_columns and n_cameras_rows
-		n_cameras_max = n_cameras_columns * n_cameras_rows;										//Calcule the max number of cameras in this case.
+																								//Calcule the max number of cameras in this case.
 		n_cameras_aux = 0;																		//Doesn't have cameras aux in this case. 
 		break;
 	case Orientation::HORIZONTAL:
@@ -124,18 +124,16 @@ void Render::CreateSplitScreen()
 			if (n_cameras_max - i > n_cameras_columns_aux)																//if the camera is not in the last row.
 			{
 				final_width = width;																					//assign the normal width.
-								//TODO 1: Calculate the position of every camera in the screen in camera_aux->screen_section.
+				//TODO 1: Calculate the position of every camera in the screen in camera_aux->screen_section.
 
-				camera_aux->screen_section.x = margin + (i % n_cameras * (final_width + margin));						//formulas to calculate the x and y of the screen section.
-				camera_aux->screen_section.y = margin + (i / n_cameras * (final_height + margin));						//the x have the % and the y the / to set the order from left to the right.
+																														//formulas to calculate the x and y of the screen section.
+																														//the x have the % and the y the / to set the order from left to the right.
 			}
 			else																										//if the camera is in the last row. the square orientation will not enter here.
 			{
 				final_width = width_aux;																				//assign the width_aux in the last row becuase is different.
 				n_cameras_aux = n_cameras_columns_aux;
-				//TODO 4: Calculate the position of every camera in the screen in camera_aux->screen_section.
-				//remember that now the number of cameras is not the same.
-
+				//Now the number of cameras is not the same.
 				camera_aux->screen_section.x = margin + (i % n_cameras_aux * (final_width + margin));					//formulas to calculate the x and y of the screen section in the last row.				
 				camera_aux->screen_section.y = margin + (i / n_cameras * (final_height + margin));						//the x have the % and the y the / to set the order left left to the right.
 			}
@@ -148,28 +146,27 @@ void Render::CreateSplitScreen()
 			if (n_cameras_max - i > n_cameras_rows_aux)																	//if the camera is not in the last column.
 			{
 				final_height = height;																					//assign the normal height.
-				//TODO 5: Calculate the position of every camera in the screen in camera_aux->screen_section.
+				//TODO 4: Calculate the position of every camera in the screen in camera_aux->screen_section.
 				//now we do not count from left to right, now we count from top to bottom.
 
-				camera_aux->screen_section.x = margin + (i / n_cameras * (final_width + margin));						//formulas to calculate the x and y of the screen section.
-				camera_aux->screen_section.y = margin + (i % n_cameras * (final_height + margin));						//the x have the / and the y the % to set the order from up to the down.
+																														//formulas to calculate the x and y of the screen section.
+																														//the x have the / and the y the % to set the order from up to the down.
 			}
 			else
 			{
 				final_height = height_aux;																				//assign the height_aux in the last column becuase is different.
 				n_cameras_aux = n_cameras_rows_aux;
-				//TODO 5: Calculate the position of every camera in the screen in camera_aux->screen_section.
+				//TODO 4: Calculate the position of every camera in the screen in camera_aux->screen_section.
 				//In the last column it happens the same, we don’t have the same number of cameras.
 
-				camera_aux->screen_section.x = margin + (i / n_cameras * (final_width + margin));						//formulas to calculate the x and y of the screen section in the last column.	
-				camera_aux->screen_section.y = margin + (i % n_cameras_aux * (final_height + margin));					//the x have the / and the y the % to set the order from up to the down.
+																														//formulas to calculate the x and y of the screen section in the last column.	
+																														//the x have the / and the y the % to set the order from up to the down.
 			}
 		}
 
 		camera_aux->rect.w = camera_aux->screen_section.w = final_width;									//assign the final width in the rect and the screen_section defined above in each case.
 		camera_aux->rect.h = camera_aux->screen_section.h = final_height;									//assign the final height in the rect and the screen_section definded above in each case.
 
-		//cameras.push_back(camera_aux);
 		cameras.Add(camera_aux);
 	}
 }
@@ -265,14 +262,10 @@ bool Render::DrawTexture(SDL_Texture* texture, int x, int y, Camera* camera, con
 	uint scale = app->win->GetScale();
 
 	SDL_Rect rect = { 0,0,0,0 }; //Section in screen
-	//TODO 2: Calculate the new position in rect_in_screen. Remember that you calculate the position on screen in camera_aux->screen_section.
+	//TODO 2: Calculate the new position of rect in screen. Remember that you calculate the position on screen in camera_aux->screen_section.
 	//Transform the rect in the word to the rect in screen =======================
 	rect.x = -camera->rect.x + x * scale;
 	rect.y = -camera->rect.y + y * scale;
-
-	//Move the rect_in_screen to their correct screen =========================== 	
-	rect.x += camera->screen_section.x;
-	rect.y += camera->screen_section.y;
 
 	if(section != NULL)
 	{

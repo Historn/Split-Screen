@@ -92,18 +92,8 @@ bool Player::Start() {
 		break;
 	}
 
-	//TODO 3: Assign one camera that is not assigned yet to the current player. When we assign one camera, we don't want to continue in the loop.
-	ListItem<Camera*>* cameraItem = app->render->cameras.start;
-	while (cameraItem != NULL)
-	{
-		if (cameraItem->data->assigned == false)
-		{
-			cameraItem->data->assigned = true;
-			cameraPlayer = cameraItem->data;
-			break;
-		}
-		cameraItem = cameraItem->next;
-	}
+	//TODO 3: Assign one camera that is not assigned yet to the current player.
+	ListItem<Camera*>* cameraItem;
 		
 
 	return true;
