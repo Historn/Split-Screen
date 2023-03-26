@@ -242,6 +242,10 @@ As we have seen, we can create squared cameras but there's any way to improve it
 
 Voronoid Split Screen is a dynamic type of split screen where the viewport splits itself into the cameras needed depending on the players positions. If the players are close to each other, then we jus have one camera rendering both players, but once they move around and they get farther then the screen is splited procedurally by calculating the perpendicular bisector of two points (Player1 and Player2 positions).
 
+![](https://github.com/Historn/Split-Screen/blob/main/docs/gifs/voronoi_split_screen.gif?raw=true)
+
+[Image source]([https://giphy.com/](https://philarchive.org/archive/KARSV](https://mattwoelk.github.io/voronoi_split_screen_notes/))
+
 <p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
 
 ***
@@ -251,6 +255,8 @@ Voronoid Split Screen is a dynamic type of split screen where the viewport split
 - [Split Screen Wikipedia](https://en.wikipedia.org/wiki/Split_screen_(computing))
 - [Fandom: Split Screen](https://ultimatepopculture.fandom.com/wiki/Split_screen_(video_games))
 - [Split Screen: Videogame History through Local Multiplayer Design](https://philarchive.org/archive/KARSV)
+- [Voronoi split screen: A Quick Tour]([https://philarchive.org/archive/KARSV](https://mattwoelk.github.io/voronoi_split_screen_notes/))
+- 
 
 <p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
 
