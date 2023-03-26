@@ -106,7 +106,7 @@ First we need to know what does a split screen needs to work correctly. The main
 
 Now, you will go through five TODOS in which you will have to solve certain code exercises in order for the split screen to work completly. The main foundations are allready implemented so if you solve the issues the program will run correctly. You can find the answeres here and a solved program in this [branch](https://github.com/kikofp02/QuestManager/tree/Solved_Handout).
 
-#### TODO 1
+#### TODO 
 
 Edit the config.xml file to complete split screen and cameras parameters and calculate the max number of cameras in n_cameras_max with n_cameras_columns and n_cameras_rows.
 
@@ -127,31 +127,28 @@ Edit the config.xml file to complete split screen and cameras parameters and cal
 // Render.cpp file changes:
 case Orientation::SQUARES:
 		//TODO 0: Calculate the max number of cameras in n_cameras_max with n_cameras_columns and n_cameras_rows
-																						n_cameras_max = n_cameras_columns * n_cameras_rows;		//Calcule the max number of cameras in this case.
+		n_cameras_max = n_cameras_columns * n_cameras_rows;		//Calcule the max number of cameras in this case.
 		n_cameras_aux = 0;						//Doesn't have cameras aux in this case. 
 		break;	
 ```
 
-#### TODO 2
+#### TODO 1
 
-Load the parameters to the quest in his constructor.
+Calculate the position of every camera in the screen in camera_aux->screen_section.
 
 ```c++
-// TextQuest.cpp file changes:
+// Render.cpp file changes:
+if (n_cameras_max - i > n_cameras_columns_aux)	//if the camera is not in the last row.
+	{
+		final_width = width;			//assign the normal width.
+		//TODO 1: Calculate the position of every camera in the screen in camera_aux->screen_section.
 
-TalkQuest::TalkQuest(pugi::xml_node node) {
-	// TODO 2 - Load all the parameters of the quest
-	this->id = node.attribute("id").as_int();
-	this->name = node.attribute("name").as_string();
-	this->description = node.attribute("description").as_string();
-	this->nextQuestId = node.attribute("nextQuestId").as_int();
-	this->npcId = node.attribute("npcId").as_int();
-	this->reward = node.attribute("reward").as_int();
-	this->type = QuestType::TALK;
-}
+		camera_aux->screen_section.x = margin + (i % n_cameras * (final_width + margin));	//formulas to calculate the x and y of the screen section.
+		camera_aux->screen_section.y = margin + (i / n_cameras * (final_height + margin));	//the x have the % and the y the / to set the order from left to the right.
+	}
 ```
 
-#### TODO 3
+#### TODO 2
 
 Make the creation of the quests in the quest manager's awake depending on the quest type marked in the config file.
 
@@ -175,7 +172,7 @@ Make the creation of the quests in the quest manager's awake depending on the qu
 		quests.Add(quest);
 ```
 
-#### TODO 4
+#### TODO 3
 
 Nest in the config file the quests that will start enabled and then, on the quest manager, add them to the list of active quests.
 
@@ -204,7 +201,7 @@ Nest in the config file the quests that will start enabled and then, on the ques
 		}
 ```
 
-#### TODO 5
+#### TODO 4
 
 Update the lists of quests when a quest is completed (output of the update of the quest is fasle).
 
