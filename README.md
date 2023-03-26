@@ -16,16 +16,13 @@
       <a> What is a split screen?</a>
     </li>
     <li>
-      <a> What is a split screen for?</a>
-    </li>
-    <li>
       <a> When should a split screen appear?</a>
     </li>
     <li>
       <a> Things to take into consideration when making a split screen</a>
     </li>
     <li>
-      <a> Let's do it!</a>
+      <a> Implementing a Split Screen</a>
     </li>
     <li>
       <a> Application to our projects</a>
@@ -89,7 +86,7 @@ First we need to know what does a split screen needs to work correctly. The main
 
 ### TODOS
 
-Now, you will go through five TODOS in which you will have to solve certain code exercises in order for the split screen to work completly. The main foundations are allready implemented so if you solve the issues the program will run correctly. You can find the answers here and a solved program in my [github repository](https://github.com/Historn/Split-Screen).
+Now, you will go through six TODOS in which you will have to solve certain code exercises in order for the split screen to work completly. The main foundations are allready implemented so if you solve the issues the program will run correctly. You can find the answers here and a solved program in my [github repository](https://github.com/Historn/Split-Screen).
 
 #### TODO 0
 
@@ -213,11 +210,6 @@ Draw the players inside each camera.
 	}
 	SDL_RenderSetClipRect(app->render->renderer, nullptr);
 ```
-
-![](https://github.com/Historn/Split-Screen/blob/main/docs/images/handout_todo1.jpg?raw=true)
-
-[Image source]()
-
 <p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
 
 # 6. Application to our projects
@@ -249,8 +241,7 @@ In this way when the players are together, a single camera doesn't use as many r
 - [Split Screen Wikipedia](https://en.wikipedia.org/wiki/Split_screen_(computing))
 - [Fandom: Split Screen](https://ultimatepopculture.fandom.com/wiki/Split_screen_(video_games))
 - [Split Screen: Videogame History through Local Multiplayer Design](https://philarchive.org/archive/KARSV)
-- [Voronoi split screen: A Quick Tour]([https://philarchive.org/archive/KARSV](https://mattwoelk.github.io/voronoi_split_screen_notes/))
-- 
+- [Voronoi split screen: A Quick Tour](https://mattwoelk.github.io/voronoi_split_screen_notes/)
 
 <p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
 
