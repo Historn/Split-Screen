@@ -60,9 +60,9 @@ A split screen is a technique where the screen is separated in two or more piece
 
 - To allow players to move around without depending on the other players.
 
-![](https://github.com/Historn/Split-Screen/blob/main/docs)
+![](https://github.com/Historn/Split-Screen/blob/main/docs/images/spsc_example.png?raw=true)
 
-[Image Source]()
+[Image Source](https://en.wikipedia.org/wiki/Split_screen_(computing)#:~:text=In%20its%20most%20easily%20understood,simultaneously%20without%20being%20close%20to)
 
 <p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
 
