@@ -108,7 +108,7 @@ Now, you will go through five TODOS in which you will have to solve certain code
 
 #### TODO 1
 
-Edit the config.xml file to complete split screen and cameras parameters.
+Edit the config.xml file to complete split screen and cameras parameters and calculate the max number of cameras in n_cameras_max with n_cameras_columns and n_cameras_rows.
 
 ```c++
 // config.xml file changes:
@@ -123,6 +123,13 @@ Edit the config.xml file to complete split screen and cameras parameters.
 		<orientation value="2"/>
 		<!--the orientation in int: 1: SQUARES, 2: HORIZONTAL, 3: VERTICAL-->
 	</renderer>
+	
+// Render.cpp file changes:
+case Orientation::SQUARES:
+		//TODO 0: Calculate the max number of cameras in n_cameras_max with n_cameras_columns and n_cameras_rows
+																						n_cameras_max = n_cameras_columns * n_cameras_rows;		//Calcule the max number of cameras in this case.
+		n_cameras_aux = 0;						//Doesn't have cameras aux in this case. 
+		break;	
 ```
 
 #### TODO 2
