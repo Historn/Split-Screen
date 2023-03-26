@@ -2,7 +2,6 @@
 
 # Useful Information
 - Made by: [Arnau Jiménez](https://github.com/Historn)
-- Click [here](https://historn.github.io/Split-Screen/) to visit project's website.
 - Click [here](https://github.com/Historn/Split-Screen) to visit project's Github repository.
 - Click [here]() to check slides presentation.
 
@@ -45,7 +44,7 @@ This website is built for information regarding my Personal Research lecture I d
 <p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
 
 # 2. What is a split screen?
-A split screen is a technique where the screen is separated in two or more pieces to display different media at the same time. 
+A split screen is a technique where the screen is separated in two or more pieces to display and control different media at the same time. 
 
 ![](https://github.com/Historn/Split-Screen/blob/main/docs/images/types_splitscreen.png?raw=true)
 
@@ -53,7 +52,7 @@ A split screen is a technique where the screen is separated in two or more piece
 
 <p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
 
-# 3. What is a split screen for?
+# 3. What is a split screen for in video games?
 
 - To show different things at he same time.
 
@@ -68,8 +67,7 @@ A split screen is a technique where the screen is separated in two or more piece
 <p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
 
 # 4. When should a split screen appear?
-
-- The split screen should be created for a local multiplayer game or for a game where we need to display things in different windows such as resource management games. This way we can play with more players without Internet connection or manage resources and other stuff in our game without moving on from the gameplay screen.
+The split screen should be created for a local multiplayer game or for a game where we need to display things in different windows such as resource management games. This way we can play with more players without Internet connection in the same screen or manage resources and other stuff in our game without moving on from the gameplay screen.
 
 ![](https://github.com/Historn/Split-Screen/blob/main/docs/images/types_splitscreen.png?raw=true)
 
@@ -78,8 +76,7 @@ A split screen is a technique where the screen is separated in two or more piece
 <p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
 
 # 5. Things to take into consideration when making a split screen
-
-- The more number of viewports, the higher the performance impact is.
+The more number of cameras that are used during the gameplay, the higher the performance impact is. This is because for each camera we are redrawing the whole scene displayed multiplying the performance impact by the number of cameras that are.
 
 <p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
 
@@ -87,7 +84,7 @@ A split screen is a technique where the screen is separated in two or more piece
 
 # 6. Let's do it!
 
-![](https://github.com/Historn/Split-Screen/blob/main/docs/gifs/quijote.gif?raw=true)
+	![](https://github.com/Historn/Split-Screen/blob/main/docs/gifs/quijote.gif?raw=true)
 
 [Image source](https://giphy.com)
 
