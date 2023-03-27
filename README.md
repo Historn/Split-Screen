@@ -93,7 +93,7 @@ Edit the config.xml file to complete split screen and cameras parameters and in 
 
 	<renderer>
 		<vsync value="false"/>
-		<!--TODO 0: Set the values to have 3 cameras in horizontal position.-->
+		<!--TODO 0: Set the values to have 4 cameras.-->
 		<margin value="10"/> <!--Changes margin size between cameras, default is 10-->
 		<n_cameras_columns value="2"/>
 		<n_cameras_rows value="2"/>
