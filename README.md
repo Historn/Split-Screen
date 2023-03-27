@@ -216,7 +216,7 @@ Now is time for you and your team to implement what we have done into your proje
 
 As we have seen, we can create squared cameras but... There's any way to improve it visually and its performance impact? Actually, yes.
 
-Voronoid Split Screen is a dynamic type of split screen where the viewport splits itself into the cameras needed depending on the players positions. If the players are close to each other, then we jusT have one camera rendering both players, but once they move around and they get farther then the screen is spliTted procedurally by calculating the perpendicular bisector of two points (ex. Player1 and Player2 positions). 
+Voronoi Split Screen is a dynamic type of split screen where the viewport splits itself into the cameras needed depending on the players positions. If the players are close to each other, then we jusT have one camera rendering both players, but once they move around and they get farther then the screen is splitted procedurally by calculating the perpendicular bisector of two points (ex. Player1 and Player2 positions). 
 
 In this way, when the players are together, a single camera doesn't use as many resources as a splitted screen.
 
