@@ -57,7 +57,7 @@ The split screen should be created for a local multiplayer game or for a game wh
 # 4. Things to take into consideration when making a split screen
 The more number of cameras that are used during the gameplay, the higher the performance impact is. This is because each camera is redrawing the whole scene displayed multiplying the performance impact by the number of cameras that have been created. 
 
-Also taking into acount that we are splitting n times our screen, each player looses a percentage of the screen then the visibility will be lesser.
+Also taking into account that we are splitting n times our screen, each player looses a percentage of the screen then the visibility will be lesser.
 
 <p align="right">(<a href="https://historn.github.io/Split-Screen/">Back to top</a>)</p>
 
@@ -216,7 +216,7 @@ Now is time for you and your team to implement what we have done into your proje
 
 As we have seen, we can create squared cameras but... There's any way to improve it visually and its performance impact? Actually, yes.
 
-Voronoi Split Screen is a dynamic type of split screen where the viewport splits itself into the cameras needed depending on the players positions. If the players are close to each other, then we jusT have one camera rendering both players, but once they move around and they get farther then the screen is splitted procedurally by calculating the perpendicular bisector of two points (ex. Player1 and Player2 positions). 
+Voronoi Split Screen is a dynamic type of split screen where the viewport splits itself into the cameras needed depending on the players positions. If the players are close to each other, then we just have one camera rendering both players, but once they move around and they get farther then the screen is splitted procedurally by calculating the perpendicular bisector of two points (ex. Player1 and Player2 positions). 
 
 In this way, when the players are together, a single camera doesn't use as many resources as a splitted screen.
 
